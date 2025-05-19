@@ -142,10 +142,16 @@ export class NavbarComponent implements OnInit {
     await modal.present();
 
     const { data } = await modal.onDidDismiss();
-    if (data && data.loggedIn) {
-      this.checkAuthStatus();
-      this.navigateBasedOnRole(this.userRole);
-    }
+    // if (data && data.loggedIn) {
+    //   this.checkAuthStatus();
+    //   this.navigateBasedOnRole(this.userRole);
+    // }
+    if (data?.loggedIn) {
+  this.userRole = data.userRole;
+  this.userName = data.userName;
+  this.navigateBasedOnRole(this.userRole);
+  this.presentToast(`¡Bienvenido, ${this.userName}!`);
+}
   }
   
 

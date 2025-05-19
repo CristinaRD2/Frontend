@@ -14,13 +14,7 @@ import { FilterCitiesPipe } from '../../pipes/filter-cities.pipe'; // Importa el
   selector: 'app-registro-donante',
   templateUrl: './registro-donante.component.html',
   styleUrls: ['./registro-donante.component.scss'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule,
-    
-]
+  standalone:false
 })
 export class RegistroDonanteComponent  implements OnInit {
 
@@ -76,7 +70,7 @@ export class RegistroDonanteComponent  implements OnInit {
       direccion: ['', Validators.required],
       ciudad: ['', Validators.required],
       contrasenia: ['', [Validators.required, Validators.minLength(6)]],
-      terms: [false, Validators.requiredTrue]
+    terms: [false, Validators.requiredTrue]
     });
   }
 
@@ -90,8 +84,14 @@ export class RegistroDonanteComponent  implements OnInit {
     this.empresaForm.patchValue({ suscripcion: plan });
     this.subscriptionService.setPlan(plan);
   }
-  
-
+ openSuscripciones(): void {
+    this.router.navigate(['/suscripciones'])
+      .then(success => {
+        if (!success) {
+          console.error('Falló la navegación a /suscripciones');
+        }
+      });
+  }
   goToPayment() {
     if (this.empresaForm.invalid) {
       this.empresaForm.markAllAsTouched();

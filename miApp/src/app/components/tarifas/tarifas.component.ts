@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { EmpresaRegistroModalComponent } from '../../components/empresa-registro-modal/empresa-registro-modal.component'; 
+import { RegistroDonanteComponent } from '../registro-donante/registro-donante.component';
 
 @Component({
   selector: 'app-tarifas',
@@ -20,11 +21,10 @@ export class TarifasComponent  implements OnInit {
     this.router.navigate(['/suscripcion', plan]);
   }
   async openRegister() {
-    // You would implement your registration modal here
-    // This is a placeholder for the offcanvas functionality from Bootstrap
+   
     const modal = await this.modalController.create({
-      component: EmpresaRegistroModalComponent, // You would need to create this component
-      cssClass: 'register-modal'
+      component: RegistroDonanteComponent, 
+      cssClass: 'registro-donante-modal'
     });
     return await modal.present();
   }

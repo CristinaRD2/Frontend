@@ -22,9 +22,16 @@ const routes: Routes = [
   {
     path: 'nuestros-beneficiarios',
     loadChildren: () => import('./pages/nuestros-beneficiarios/nuestros-beneficiarios.module').then( m => m.NuestrosBeneficiariosPageModule)
-  },  {
+  },
+  {
     path: 'articulos',
     loadChildren: () => import('./pages/articulos/articulos.module').then( m => m.ArticulosPageModule)
+  },
+  {
+  path: 'registro-donante',
+    loadChildren: () =>
+      import('./components/registro-donante/registro-donante.module')
+        .then(m => m.RegistroDonanteModule)
   }
 
 
