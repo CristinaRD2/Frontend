@@ -1,0 +1,66 @@
+<ion-accordion-group>
+  <!-- Paypal -->
+  <ion-accordion value="paypal">
+    <ion-item slot="header">
+      <ion-label>Paypal</ion-label>
+      <ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+      <ion-thumbnail slot="end">
+        <img src="https://i.imgur.com/7kQEsHU.png" />
+      </ion-thumbnail>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-item>
+        <ion-label position="stacked">Correo de Paypal</ion-label>
+        <ion-input type="email" [(ngModel)]="paypalEmail"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="showPaypalError">
+        <p>Correo inválido o vacío</p>
+      </ion-text>
+    </div>
+  </ion-accordion>
+
+  <!-- Tarjeta de Crédito -->
+  <ion-accordion value="card" expanded="true">
+    <ion-item slot="header">
+      <ion-label>Tarjeta de crédito</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-item>
+        <ion-label position="stacked">Número de tarjeta</ion-label>
+        <ion-input type="text" maxlength="16" [(ngModel)]="cardNumber" (ionInput)="onNumericInput($event)"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="showCardNumberError">
+        <p>Número de tarjeta inválido o vacío</p>
+      </ion-text>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="stacked">Fecha de expiración</ion-label>
+            <ion-input type="text" maxlength="5" [(ngModel)]="expiryDate" (ionInput)="formatExpiry($event)"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="showExpiryError">
+            <p>Fecha inválida o vacía</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="stacked">CVC/CVV</ion-label>
+            <ion-input type="text" maxlength="4" [(ngModel)]="cvv" (ionInput)="onNumericInput($event)"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="showCvvError">
+            <p>CVC inválido o vacío</p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <p class="secure-note">
+        <ion-icon name="lock-closed"></ion-icon>
+        Tu transacción es segura con SSL certificado
+      </p>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>
+
+<!-- Botón Pagar -->
+<ion-button expand="block" color="primary" (click)="onPay()">Pagar</ion-button>

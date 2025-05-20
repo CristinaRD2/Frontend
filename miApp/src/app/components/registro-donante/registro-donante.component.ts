@@ -97,14 +97,12 @@ export class RegistroDonanteComponent  implements OnInit {
       this.empresaForm.markAllAsTouched();
       return;
     }
-    // Guardar datos y navegar
     this.registroDataService.setEmpresaData(this.empresaForm.value);
-    this.router.navigate(['/pasarelaPago']);
+    this.router.navigate(['/pasarela-pago']);
   }
 
   toggleLogin() {
     this.closeRegisterModal();
-    // lógica para mostrar modal de login...
   }
 
   openTerms() {

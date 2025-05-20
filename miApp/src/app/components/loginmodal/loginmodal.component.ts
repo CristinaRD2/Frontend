@@ -110,6 +110,8 @@ export class LoginmodalComponent implements OnInit {
           const userRole = this.authService.getUserRole();
           const userName = this.authService.getUserName();
           this.modalController.dismiss({ loggedIn: true, userRole, userName });
+                  window.location.reload();
+
         },
         error: (error: any) => {
           console.error('Error de inicio de sesión', error);
