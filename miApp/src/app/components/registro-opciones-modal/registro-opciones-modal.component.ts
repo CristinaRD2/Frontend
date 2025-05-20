@@ -4,6 +4,7 @@ import { RegistroDonanteComponent } from '../registro-donante/registro-donante.c
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LoginmodalComponent } from '../loginmodal/loginmodal.component';
+import { RegistroBeneficiarioComponent } from '../registro-beneficiario/registro-beneficiario.component';
 
 @Component({
   selector: 'app-registro-opciones-modal',
@@ -46,20 +47,19 @@ throw new Error('Method not implemented.');
     }, 500);
   }
 
-  // async abrirRegistroBeneficiario() {
-  //   this.beneficiarioLoading = true;
+  async abrirRegistroBeneficiario() {
+    this.beneficiarioLoading = true;
 
-  //   setTimeout(async () => {
-  //     this.beneficiarioLoading = false;
-  //     await this.modalCtrl.dismiss();
+    setTimeout(async () => {
+      this.beneficiarioLoading = false;
+      await this.modalCtrl.dismiss();
 
-  //     const modal = await this.modalCtrl.create({
-  //       component: RegistroBeneficiarioComponent,
-  //       cssClass: 'beneficiario-registro-modal'
-  //     });
-  //     await modal.present();
-  //   }, 500);
-  // }
+      const modal = await this.modalCtrl.create({
+        component: RegistroBeneficiarioComponent,
+      });
+      await modal.present();
+    }, 500);
+  }
 
   async backToLogin() {
     await this.modalCtrl.dismiss();
