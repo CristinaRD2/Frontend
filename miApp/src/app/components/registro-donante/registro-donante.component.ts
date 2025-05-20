@@ -97,6 +97,7 @@ export class RegistroDonanteComponent  implements OnInit {
       this.empresaForm.markAllAsTouched();
       return;
     }
+    console.log(this.empresaForm.value); 
     this.registroDataService.setEmpresaData(this.empresaForm.value);
     this.router.navigate(['/pasarela-pago']);
   }
