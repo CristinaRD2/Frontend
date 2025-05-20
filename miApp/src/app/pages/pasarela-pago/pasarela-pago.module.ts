@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PasarelaPagoPageRoutingModule } from './pasarela-pago-routing.module';
 
 import { PasarelaPagoPage } from './pasarela-pago.page';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [

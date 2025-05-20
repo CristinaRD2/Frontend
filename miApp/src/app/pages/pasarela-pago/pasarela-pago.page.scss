@@ -1,82 +1,153 @@
-
 :host {
---ion-background-color: #000;
---ion-text-color: #fff;
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
 }
 
 ion-content {
---background: #212529;
-color: #fff;
+  --background: #1e1e1e;    /* un poco más claro que antes */
+  color: var(--ion-text-color);
 }
 
-ion-header,
-ion-toolbar {
---background: #212529;
---color: #ffc107;
-border-bottom: 1px solid #444;
+/* Cartas con fondo ligeramente más claro */
+.payment-card,
+.summary-card {
+  background: #2a2a2a;      /* gris oscuro neutro */
+  color: var(--ion-text-color);
 }
 
-ion-title {
-color: #ffffff;
-font-weight: bold;
+/* Encabezados de acordeón */
+.accordion-header {
+  --background: #333333;    /* gris medio para resaltar */
+  color: #ffffff;
 }
 
-ion-icon {
-color: #ffc107;
+/* Inputs y labels */
+ion-item,
+ion-input,
+ion-label {
+  --background: #1e1e1e;
+  --color: #ffffff;         /* texto blanco */
+  --placeholder-color: #bbbbbb;
+  border: none;
+  margin:10px;
 }
-
-ion-label,
-p {
-color: #ccc;
-}
-
-ion-item {
---background: #212529;
---border-color: #555;
-color: #fff;
-}
-
 ion-input {
---background: #f4faf9;
---color: #000;
-border: 1px solid #555;
-padding: 8px;
-margin-top: 8px;
-border-radius: 4px;
+  --background: #ffffff;
+  margin-bottom: 2rem;
+}
+ion-item{
+    --background: #2a2a2a;
+    --color: #ffffff;         /* texto blanco */
+    --placeholder-color: #bbbbbb;
+    border: none;
+    margin:10px;
 }
 
+/* Texto de error */
+ion-text[color="danger"] {
+  color: #ff6b6b;           /* rojo más vivo */
+}
+
+/* Nota de seguridad */
+.secure-note {
+  color: #cccccc;           /* gris claro */
+}
+
+/* Resumen */
+.summary-row span,
+.total-row ion-label,
+.total-row ion-note {
+  color: #ffffff;
+}
+
+.plan-label {
+  color: #ffcc00;           /* amarillo vivo */
+}
+
+.plan-price {
+  color: #ffffff;
+}
+
+/* Botones */
 ion-button {
---border-radius: 4px;
-margin-top: 16px;
+  --background: #ffcc00;    /* amarillo para “Pagar” */
+  --color: #212529;         /* texto oscuro dentro del botón */
 }
 
-ion-button[color="warning"] {
---background: #ffc107;
---color: #212529;
+/* Ajuste responsivo de tarjetas */
+ion-col {
+  margin-bottom: 16px;
+}
+ion-card-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;           
+}
+.summary-card {
+  background: #282828;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0; /* ionic ya aplica padding en card-content */
 }
 
-.plan-container {
-display: flex;
-gap: 12px;
-margin: 16px 0;
-justify-content: center;
+.summary-card ion-card-header {
+  background: #1f1f1f;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 16px;
 }
 
-.plan-box {
-flex: 1 1 30%;
-max-width: 120px;
-padding: 12px 0;
-background: transparent;
-border: 2px solid #ffc107;
-border-radius: 6px;
-color: #ffc107;
-font-weight: 600;
-text-align: center;
-cursor: pointer;
-transition: background 0.2s, color 0.2s;
+.summary-card ion-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffcc00;
 }
 
-.plan-active {
-background: #ffc107;
-color: #212529;
+.summary-details {
+  padding: 16px;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.detail-row .label {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.detail-row .value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.total-container span {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.total-badge {
+  --background: #ffcc00;
+  --color: #212529;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.summary-card ion-button {
+  margin: 0 16px 16px;
+  --border-radius: 8px;
 }
